@@ -253,7 +253,7 @@
     },
     pinterest : function(self){
       var sett = self.options.buttons.pinterest;
-      $(self.element).find('.buttons').append('<div class="button pinterest"><a href="http://pinterest.com/pin/create/button/?url='+(sett.url !== '' ? sett.url : self.options.url)+'&media='+sett.media+'&description='+sett.description+'" class="pin-it-button" count-layout="'+sett.layout+'">Pin It</a></div>');
+      $(self.element).find('.buttons').append('<div class="button pinterest"><a href="http://pinterest.com/pin/create/button/?url='+(sett.url !== '' ? sett.url : self.options.url)+'&media='+(sett.media !== '' ? sett.media : self.options.media)+'&description='+sett.description+'" class="pin-it-button" count-layout="'+sett.layout+'">Pin It</a></div>');
 
       (function() {
         var li = document.createElement('script');li.type = 'text/javascript';li.async = true;
@@ -378,6 +378,9 @@
     }
     if(typeof $(this.element).data('text') !== 'undefined'){
       this.options.text = $(this.element).data('text');
+    }
+    if(typeof $(this.element).data('media') !== 'undefined'){
+      this.options.media = $(this.element).data('media');
     }
     
     //how many social website have been selected
